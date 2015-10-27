@@ -1,0 +1,12 @@
+{ 
+	"name": "Regx File",
+  	"scopeName": "source.regx",
+  	"fileTypes": ["regx"],
+  	"patterns": [
+  		{
+  			"match": "-\\[=\\]-.*$\n?",
+  			"name": "comment.source.regx",
+  			"comment": "Regex Comment"
+  		}
+  	]
+  	"uuid": "4a0dff51-a4ef-2110-9acb-9299afe1c418"
