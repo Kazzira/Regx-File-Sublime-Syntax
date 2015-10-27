@@ -11,12 +11,8 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>comment</key>
-			<string>Regex Comment</string>
-			<key>match</key>
-			<string>-\[=\]-.*$\n?</string>
-			<key>name</key>
-			<string>comment.source.regx</string>
+			<key>include</key>
+			<string>#inc_comment</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -42,7 +38,69 @@
 			<key>match</key>
 			<string>(&lt;\[\s*)(.*?)(\s*\]&gt;)</string>
 		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^/</string>
+			<key>end</key>
+			<string>[^\\]/</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#in_regex</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inc_comment</string>
+				</dict>
+			</array>
+		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>in_regex</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>string.regxp.source.regx</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>string.regxp.source.regx</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>string.regxp.source.regx</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\\)([sSdDwW])([*+?])</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inc_comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>Regex Comment</string>
+					<key>match</key>
+					<string>-\[=\]-.*$\n?</string>
+					<key>name</key>
+					<string>comment.source.regx</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.regx</string>
 	<key>uuid</key>

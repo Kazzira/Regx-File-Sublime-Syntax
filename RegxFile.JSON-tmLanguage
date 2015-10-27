@@ -1,13 +1,35 @@
+// [PackageDev] target_format: plist, ext: tmLanguage
 { 
 	"name": "Regx File",
   	"scopeName": "source.regx",
   	"fileTypes": ["regx"],
+    "repository": {
+        "in_regex": {
+            "patterns": [
+                {
+                    "match": "(\\\\)([sSdDwW])([*+?])",
+                    "captures": {
+                        "1": { "name" : "string.regxp.source.regx" },
+                        "2": { "name" : "string.regxp.source.regx" },
+                        "3": { "name" : "string.regxp.source.regx" }
+                    }
+                }
+            ]
+        },
+        "inc_comment": {
+            "patterns": [
+                {
+                    "match": "-\\[=\\]-.*$\\n?",
+                    "name": "comment.source.regx",
+                    "comment": "Regex Comment"
+                }
+            ]
+        }
+    },
   	"patterns": [
-  		{
-  			"match": "-\\[=\\]-.*$\\n?",
-  			"name": "comment.source.regx",
-  			"comment": "Regex Comment"
-  		},
+        {
+            "include": "#inc_comment"
+        },
   		{
   			"match": "(<\\[\\s*)(.*?)(\\s*\\]>)",
   			"captures": {
@@ -16,7 +38,19 @@
   				"3": { "name": "keyword.operator.source.regx" }
   			},
   			"comment": "Regex Name"
-  		}
+  		},
+        {
+            "begin": "^/",
+            "patterns": [
+                {
+                    "include": "#in_regex"
+                },
+                {
+                    "include": "#inc_comment"
+                }
+            ],
+            "end": "[^\\\\]/"
+        }
   	],
   	"uuid": "4a0dff51-a4ef-2110-9acb-9299afe1c418"
 
