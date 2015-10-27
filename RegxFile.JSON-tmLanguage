@@ -10,8 +10,8 @@
                     "match": "(\\\\)([sSdDwW])([*+?])?",
                     "captures": {
                         "1": { "name" : "keyword.operator.source.regx" },
-                        "2": { "name" : "string.regxp.source.regx" },
-                        "3": { "name" : "string.regxp.source.regx" }
+                        "2": { "name" : "keyword.operator.source.regx" },
+                        "3": { "name" : "keyword.operator.source.regx" }
                     }
                 },
                 {
@@ -47,7 +47,12 @@
   			"comment": "Regex Name"
   		},
         {
-            "begin": "^/",
+            "begin": "^(/)",
+            "beginCaptures": {
+                "1": { "name": "storage.type.function.regx" }
+            },
+
+            "name": "variable.parameter",
             "patterns": [
                 {
                     "include": "#in_regex"
@@ -56,7 +61,10 @@
                     "include": "#inc_comment"
                 }
             ],
-            "end": "[^\\\\]/"
+            "end": "[^\\\\](/)",
+            "endCaptures": {
+                "1": { "name": "storage.type.function.regx" }
+            }
         },
         {
             "match": "^\\s*def\\s*$",
