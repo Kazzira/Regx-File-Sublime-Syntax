@@ -20,17 +20,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.source.regx</string>
+					<string>keyword.control.source.regx</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.source.regx</string>
+					<string>string.quoted.double.regx</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.operator.source.regx</string>
+					<string>keyword.control.source.regx</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -55,6 +55,39 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>^\s*def\s*$</string>
+			<key>name</key>
+			<string>storage.type.function.regx</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.regx</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.source.regx</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.source.regx</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.source.python</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(def)\s+(match)(\s*|\s+([_A-Za-z][_A-Za-z0-9]*)(\s*|(\s+(\d+))))$</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -68,7 +101,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.regxp.source.regx</string>
+							<string>keyword.operator.source.regx</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -82,7 +115,24 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(\\)([sSdDwW])([*+?])</string>
+					<string>(\\)([sSdDwW])([*+?])?</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.source.regx</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.source.regx</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\\)(x)</string>
 				</dict>
 			</array>
 		</dict>

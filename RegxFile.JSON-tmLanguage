@@ -7,11 +7,18 @@
         "in_regex": {
             "patterns": [
                 {
-                    "match": "(\\\\)([sSdDwW])([*+?])",
+                    "match": "(\\\\)([sSdDwW])([*+?])?",
                     "captures": {
-                        "1": { "name" : "string.regxp.source.regx" },
+                        "1": { "name" : "keyword.operator.source.regx" },
                         "2": { "name" : "string.regxp.source.regx" },
                         "3": { "name" : "string.regxp.source.regx" }
+                    }
+                },
+                {
+                    "match": "(\\\\)(x)",
+                    "captures": {
+                        "1": { "name" : "keyword.operator.source.regx" },
+                        "2": { "name" : "constant.numeric.source.regx" }
                     }
                 }
             ]
@@ -33,9 +40,9 @@
   		{
   			"match": "(<\\[\\s*)(.*?)(\\s*\\]>)",
   			"captures": {
-  				"1": { "name": "keyword.operator.source.regx" },
-  				"2": { "name": "keyword.control.source.regx" },
-  				"3": { "name": "keyword.operator.source.regx" }
+  				"1": { "name": "keyword.control.source.regx" },
+  				"2": { "name": "string.quoted.double.regx" },
+  				"3": { "name": "keyword.control.source.regx" }
   			},
   			"comment": "Regex Name"
   		},
@@ -50,6 +57,19 @@
                 }
             ],
             "end": "[^\\\\]/"
+        },
+        {
+            "match": "^\\s*def\\s*$",
+            "name": "storage.type.function.regx"
+        },
+        {
+            "match": "^\\s*(def)\\s+(match)(\\s*|\\s+([_A-Za-z][_A-Za-z0-9]*)(\\s*|(\\s+(\\d+))))$",
+            "captures": {
+                "1": { "name" : "storage.type.function.regx" },
+                "2": { "name" : "keyword.control.source.regx"},
+                "4": { "name" : "keyword.operator.source.regx" },
+                "6": { "name" : "constant.numeric.source.python" }
+            }
         }
   	],
   	"uuid": "4a0dff51-a4ef-2110-9acb-9299afe1c418"
