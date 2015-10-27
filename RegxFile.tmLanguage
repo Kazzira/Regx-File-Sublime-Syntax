@@ -50,7 +50,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>[^\\](/)</string>
+			<string>(/)</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -133,7 +133,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(\\)([sSdDwW])([*+?])?</string>
+					<string>(\\)([sSdDwWbB/])([*+?]?)</string>
 				</dict>
 				<dict>
 					<key>captures</key>

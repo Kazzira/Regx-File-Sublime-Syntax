@@ -7,7 +7,7 @@
         "in_regex": {
             "patterns": [
                 {
-                    "match": "(\\\\)([sSdDwW])([*+?])?",
+                    "match": "(\\\\)([sSdDwWbB/])([*+?]?)",
                     "captures": {
                         "1": { "name" : "keyword.operator.source.regx" },
                         "2": { "name" : "keyword.operator.source.regx" },
@@ -61,7 +61,7 @@
                     "include": "#inc_comment"
                 }
             ],
-            "end": "[^\\\\](/)",
+            "end": "(/)",
             "endCaptures": {
                 "1": { "name": "storage.type.function.regx" }
             }
